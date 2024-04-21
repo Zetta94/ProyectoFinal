@@ -11,41 +11,42 @@ class ProductManager {
             let products = [];
 
             try {
-                const data = await fs.readFile(this.path, 'utf8');
+                const data = await fs.readFile(this.path, 'utf8')
                 if (data.trim() !== '') {
                     products = JSON.parse(data);
                 }
             } catch (error) {
                 if (error.code !== 'ENOENT') {
-                    console.error('Error reading file:', error);
+                    console.error('Error reading file:', error)
                 }
             }
 
-            const control_code = products.find(e => e.code === code);
+            const control_code = products.find(e => e.code === code)
             if (control_code) {
-                throw new Error('A product with this code has already been entered');
+                throw new Error('A product with this code has already been entered')
+            }else{
+                const id = products.length + 1;
+
+                const product = {
+                    id : id,
+                    title : title,
+                    description : description,
+                    code: code,
+                    price : price,
+                    status: true,
+                    stock : stock,
+                    category: category,
+                    thumbnail: thumbnail
+                };
+
+                products.push(product);
+
+                await fs.writeFile(this.path, JSON.stringify(products, null, 2));
             }
 
-            const id = products.length + 1;
-
-            const product = {
-                id : id,
-                title : title,
-                description : description,
-                code: code,
-                price : price,
-                status: true,
-                stock : stock,
-                category: category,
-                thumbnail: thumbnail
-            };
-
-            products.push(product);
-
-            await fs.writeFile(this.path, JSON.stringify(products, null, 2));
-            console.log('Product added successfully.');
+            
         } catch (error) {
-            console.error('Error writing to file:', error);
+            throw new Error(error.message);
         }
     }
 
@@ -53,7 +54,8 @@ class ProductManager {
         try {
             const data = await fs.readFile(this.path, 'utf8');
             const products = JSON.parse(data);
-            return products;
+            const product_list = products.filter(e => e.status === true);
+            return product_list;
         } catch (error) {
             console.error('Error reading file:', error);
             return [];
@@ -78,6 +80,7 @@ class ProductManager {
         }
     }
 
+    //Se implemento un borrado logico. No se elimina por completo el producto, sino que se cambia su status.
 
     async deleteProduct(id) {
         try {
@@ -90,21 +93,12 @@ class ProductManager {
                 return;
             }
     
-            const deletedProduct = products[index];
-    
-            const nullProduct = { id: deletedProduct.id };
-            for (const key in deletedProduct) {
-                if (key !== 'id') {
-                    nullProduct[key] = null;
-                }
-            }
-    
-            products[index] = nullProduct;
+            products[index].status = false;
     
             await fs.writeFile(this.path, JSON.stringify(products, null, 2));
             console.log('Product deleted successfully.');
         } catch (error) {
-            console.error('Error deleting product:', error);
+            throw new Error('Error deleting product:'+ error);
         }
     }
 
@@ -115,18 +109,15 @@ class ProductManager {
             const index = products.findIndex(e => e.id === id);
             
             if (index === -1) {
-                console.log("Error: Product not found");
-                return;
+                throw new Error("Product not found");
             }
-
+            
             if (fieldToUpdate === 'id') {
-                console.log("Error: Cannot update ID field");
-                return;
+                throw new Error("Cannot update ID field");
             }
-
+            
             if (!products[index].hasOwnProperty(fieldToUpdate)) {
-                console.log("Error: Field to update is not valid");
-                return;
+                throw new Error("Field to update is not valid");
             }
 
             products[index][fieldToUpdate] = newValue;
@@ -134,7 +125,7 @@ class ProductManager {
             await fs.writeFile(this.path, JSON.stringify(products, null, 2));
             console.log('Product updated successfully.');
         } catch (error) {
-            console.error('Error updating product:', error);
+            throw new Error ('Error updating product:' + error.message);
         }
     }
 
