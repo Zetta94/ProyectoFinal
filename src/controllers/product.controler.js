@@ -57,8 +57,7 @@ class ProductManager {
             const product_list = products.filter(e => e.status === true);
             return product_list;
         } catch (error) {
-            console.error('Error reading file:', error);
-            return [];
+            throw new Error (error);
         }
     }
 
@@ -69,18 +68,16 @@ class ProductManager {
             const product_find = products.find(e => e.id === id);
             
             if (!product_find) {
-                console.log("Error: Not Found");
-                return null;
+                throw new Error("The product with that ID was not found.")
             } else {
                 return product_find;
             }
         } catch (error) {
-            console.error('Error reading file:', error);
-            return null;
+            throw new Error(error)
         }
     }
 
-    //Se implemento un borrado logico. No se elimina por completo el producto, sino que se cambia su status.
+    //Se implemento un borrado logico. No se elimina por completo el producto, sino que se cambia su status a false.
 
     async deleteProduct(id) {
         try {
@@ -89,19 +86,18 @@ class ProductManager {
             const index = products.findIndex(e => e.id === id);
     
             if (index === -1) {
-                console.log("Error: Product not found");
-                return;
+                throw new Error("Product not found")
             }
     
             products[index].status = false;
     
             await fs.writeFile(this.path, JSON.stringify(products, null, 2));
-            console.log('Product deleted successfully.');
         } catch (error) {
-            throw new Error('Error deleting product:'+ error);
+            throw new Error(error);
         }
     }
 
+    //!Controlar que si agregan un nuevo codigo este codigo ya no exista antes.
     async updateProduct(id, fieldToUpdate, newValue) {
         try {
             const data = await fs.readFile(this.path, 'utf8');
@@ -123,7 +119,6 @@ class ProductManager {
             products[index][fieldToUpdate] = newValue;
 
             await fs.writeFile(this.path, JSON.stringify(products, null, 2));
-            console.log('Product updated successfully.');
         } catch (error) {
             throw new Error ('Error updating product:' + error.message);
         }

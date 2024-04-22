@@ -14,8 +14,7 @@ router.get('/products', async (req, res) => {
             return res.status(200).send({status:"success",payload:response})
         }
     } catch (error) {
-        console.log(error)
-        return res.status(500).send({status: 'error', message:error.message})
+        return res.status(500).send({status: 'error', error:error.message})
     }
 }) 
 
@@ -23,19 +22,12 @@ router.get('/products/:pid', async (req, res) => {
     try {
         let pid = parseInt(req.params.pid)
         const response = await manager.getProductById(pid)
-        if (response) {
-            return res.status(200).send({status:"success",payload:response})
-        } else {
-            console.log('The product does not exist')
-            return res.status(200).send({status:"success", payload:'The product does not exist'})
-        }
+        return res.status(200).send({status:"success",payload:response})
     } catch (error) {
-        console.log(error)
-        return res.status(500).send({status: 'error', message:error.message})
+        return res.status(500).send({status: 'error', error:error.message})
     }
 })
 
-//Tengo un problema al agregar un producto con un codigo ya escrito. Me sigue tirando succes y que el producto fue agregado bien.
 router.post('/products', async (req, res) => {
     try {
         const { title, description, code, price, stock, category, thumbnail=[] } = req.body
@@ -44,11 +36,10 @@ router.post('/products', async (req, res) => {
         }
         const product = await manager.addProduct(title, description, code, price, stock, category, thumbnail)
         console.log(product)
-        res.status(200).send({ status: "success", payload: "Product successfully added" })
+        res.status(200).send({ status: "success", message: "Product successfully added" })
 
     } catch (error) {    
-            console.error(error)
-            res.status(500).send({ status: "error", message: error.message })
+            res.status(500).send({ status: "error", error: error.message })
         }
 })
 
@@ -58,10 +49,9 @@ router.put('/products/:pid', async(req,res)=>{
         let pid = parseInt(req.params.pid)
         const {fieldToUpdate, newValue} = req.body
         const response = await manager.updateProduct(pid,fieldToUpdate, newValue)
-        res.status(200).send({ status: "success", payload: "Product successfully updated " })
+        res.status(200).send({ status: "success", message: "Product successfully updated " })
     } catch(error){
-        console.error(error)
-        res.status(500).json({ status: "error", message: error.message })
+        res.status(500).json({ status: "error", error: error.message })
     }
 })
 
@@ -69,10 +59,9 @@ router.delete('/products/:pid', async(req,res)=>{
     try{
         let pid = parseInt(req.params.pid)
         const response = await manager.deleteProduct(pid)
-        res.status(200).send({status: "success", payload: "Product successfully deleted."}) 
+        res.status(200).send({status: "success", message: "Product successfully deleted."}) 
     } catch(error){
-        console.error(error)
-        res.status(500).json({ status: "error", message: error.message })
+        res.status(500).json({ status: "error", error: error.message })
     }
 })
 

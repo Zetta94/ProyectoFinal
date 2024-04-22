@@ -1,135 +1,151 @@
 [
   {
     "id": 1,
-    "title": "Producto 1",
-    "description": "Description 1",
-    "code": "P1",
-    "price": 9.99,
-    "status": true,
-    "stock": 10,
-    "category": "category 1",
-    "thumbnail": []
-  },
-  {
-    "id": 2,
-    "title": "Producto 2",
-    "description": "Description 2",
-    "code": "P2",
-    "price": 2024,
-    "status": true,
-    "stock": 20,
-    "category": "category 2",
-    "thumbnail": []
-  },
-  {
-    "id": 3,
-    "title": "Producto 3",
-    "description": "Description 3",
-    "code": "P3",
-    "price": 3.33,
-    "status": true,
-    "stock": 30,
-    "category": "category 3",
-    "thumbnail": []
-  },
-  {
-    "id": 4,
-    "title": "Producto 4",
-    "description": "Descripción 4",
-    "code": "P4",
-    "price": 4.44,
-    "status": true,
-    "stock": 40,
-    "category": "category 4",
-    "thumbnail": []
-  },
-  {
-    "id": 5,
-    "title": "Producto 5",
-    "description": "Descripción 5",
-    "code": "P5",
-    "price": 5.55,
+    "title": "Smartphone Samsung Galaxy S20",
+    "description": "Elegante smartphone con pantalla AMOLED de 6.2 pulgadas, cámara de alta resolución y rendimiento potente.",
+    "code": "SSG20",
+    "price": 799.99,
     "status": true,
     "stock": 50,
-    "category": "category 5",
-    "thumbnail": []
-  },
-  {
-    "id": 6,
-    "title": "Producto 6",
-    "description": "Descripción 6",
-    "code": "P6",
-    "price": 6.66,
-    "status": true,
-    "stock": 60,
-    "category": "category 6",
-    "thumbnail": []
-  },
-  {
-    "id": 7,
-    "title": "Producto 7",
-    "description": "Descripción 7",
-    "code": "P7",
-    "price": 7.77,
-    "status": true,
-    "stock": 70,
-    "category": "category 7",
-    "thumbnail": []
-  },
-  {
-    "id": 8,
-    "title": "Producto 8",
-    "description": "Descripción 8",
-    "code": "P8",
-    "price": 8.88,
-    "status": true,
-    "stock": 80,
-    "category": "category 8",
-    "thumbnail": []
-  },
-  {
-    "id": 9,
-    "title": "Producto 9",
-    "description": "Descripción 9",
-    "code": "P9",
-    "price": 9.99,
-    "status": true,
-    "stock": 90,
-    "category": "category 9",
-    "thumbnail": []
-  },
-  {
-    "id": 10,
-    "title": "Producto 10",
-    "description": "Descripción 10",
-    "code": "P10",
-    "price": 10,
-    "status": true,
-    "stock": 100,
-    "category": "category 10",
-    "thumbnail": []
-  },
-  {
-    "id": 11,
-    "title": "Producto 11",
-    "description": "Description 11",
-    "code": "P11",
-    "price": 11.111,
-    "status": true,
-    "stock": 11,
-    "category": "Category 11",
+    "category": "Electrónica",
     "thumbnail": [
-      "www.nuevaimagen10.com",
-      "www.otraimagen.com"
+      "https://example.com/samsung-galaxy-s20-1.jpg",
+      "https://example.com/samsung-galaxy-s20-2.jpg"
     ]
   },
   {
-    "id": 12,
-    "title": "producto 12",
-    "description": "Description 13",
-    "code": "P13",
-    "price": 12.1212,
+    "id": 2,
+    "title": "Laptop Dell XPS 15",
+    "description": "Potente laptop con pantalla táctil de 15 pulgadas, procesador Intel Core i7 y gráficos NVIDIA GeForce GTX.",
+    "code": "DLXPS15",
+    "price": 1499.99,
     "status": true,
+    "stock": 30,
+    "category": "Computadoras",
+    "thumbnail": [
+      "https://example.com/dell-xps-15-1.jpg",
+      "https://example.com/dell-xps-15-2.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Televisor LG OLED CX",
+    "description": "Televisor OLED de 55 pulgadas con resolución 4K, inteligencia artificial y tecnología Dolby Vision IQ.",
+    "code": "LGOCX55",
+    "price": 1999.99,
+    "status": true,
+    "stock": 20,
+    "category": "Electrodomésticos",
+    "thumbnail": [
+      "https://example.com/lg-oled-cx-1.jpg",
+      "https://example.com/lg-oled-cx-2.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Cafetera Nespresso Vertuo",
+    "description": "Cafetera automática con tecnología de cápsulas, capacidad para preparar diferentes tamaños de café y diseño elegante.",
+    "code": "NVPV120",
+    "price": 249.99,
+    "status": true,
+    "stock": 15,
+    "category": "Electrodomésticos",
+    "thumbnail": [
+      "https://example.com/nespresso-vertuo-1.jpg",
+      "https://example.com/nespresso-vertuo-2.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Reproductor de música Bose SoundLink",
+    "description": "Reproductor de música portátil con conectividad Bluetooth, sonido envolvente y diseño compacto.",
+    "code": "BSLS20",
+    "price": 149.99,
+    "status": true,
+    "stock": 40,
+    "category": "Electrónica",
+    "thumbnail": [
+      "https://example.com/bose-soundlink-1.jpg",
+      "https://example.com/bose-soundlink-2.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Smartwatch Apple Watch Series 6",
+    "description": "Smartwatch con pantalla Retina siempre activa, monitorización de la salud y compatibilidad con aplicaciones de fitness.",
+    "code": "AWS6",
+    "price": 399.99,
+    "status": true,
+    "stock": 25,
+    "category": "Electrónica",
+    "thumbnail": [
+      "https://example.com/apple-watch-series-6-1.jpg",
+      "https://example.com/apple-watch-series-6-2.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Laptop Lenovo ThinkPad X1 Carbon",
+    "description": "Laptop ultradelgada con procesador Intel Core i7, pantalla HDR Dolby Vision y batería de larga duración.",
+    "code": "LLX1C",
+    "price": 1599.99,
+    "status": true,
+    "stock": 20,
+    "category": "Computadoras",
+    "thumbnail": [
+      "https://example.com/lenovo-thinkpad-x1-carbon-1.jpg",
+      "https://example.com/lenovo-thinkpad-x1-carbon-2.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Cámara Canon EOS R5",
+    "description": "Cámara mirrorless de alta resolución con sensor CMOS de fotograma completo de 45 megapíxeles y grabación de vídeo en 8K.",
+    "code": "CCER5",
+    "price": 3899.99,
+    "status": true,
+    "stock": 10,
+    "category": "Electrónica",
+    "thumbnail": [
+      "https://example.com/canon-eos-r5-1.jpg",
+      "https://example.com/canon-eos-r5-2.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Auriculares Sony WH-1000XM4",
+    "description": "Auriculares inalámbricos con cancelación de ruido líder en su clase, calidad de sonido premium y autonomía de hasta 30 horas.",
+    "code": "ASWH1000XM4",
+    "price": 349.99,
+    "status": true,
+    "stock": 30,
+    "category": "Electrónica",
+    "thumbnail": [
+      "https://example.com/sony-wh-1000xm4-1.jpg",
+      "https://example.com/sony-wh-1000xm4-2.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Monitor LG UltraWide 34WL850-W",
+    "description": "Monitor ultrapanorámico de 34 pulgadas con resolución QHD, tecnología IPS y compatibilidad con HDR10.",
+    "code": "MLUW34WL850",
+    "price": 799.99,
+    "status": true,
+    "stock": 15,
+    "category": "Electrónica",
+    "thumbnail": [
+      "https://example.com/lg-ultrawide-34wl850-w-1.jpg",
+      "https://example.com/lg-ultrawide-34wl850-w-2.jpg"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Producto 13",
+    "description": "Description 13",
+    "code": "MLUW34WL850",
+    "price": 12.1212,
+    "status": false,
     "stock": 12,
     "category": "Category 12",
     "thumbnail": [
