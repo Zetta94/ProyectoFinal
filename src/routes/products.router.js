@@ -3,6 +3,7 @@ const router = express.Router()
 const ProductManager = require('../controllers/product.controler.js')
 const manager = new ProductManager()
 
+//Route that returns all products.
 router.get('/products', async (req, res) => {
     try {
         const response = await manager.getProducts()
@@ -18,6 +19,7 @@ router.get('/products', async (req, res) => {
     }
 }) 
 
+//Route returned by a product determined by its id
 router.get('/products/:pid', async (req, res) => {
     try {
         let pid = parseInt(req.params.pid)
@@ -28,6 +30,7 @@ router.get('/products/:pid', async (req, res) => {
     }
 })
 
+//Route that creates a new product
 router.post('/products', async (req, res) => {
     try {
         const { title, description, code, price, stock, category, thumbnail=[] } = req.body
@@ -43,7 +46,7 @@ router.post('/products', async (req, res) => {
         }
 })
 
-
+//Route that updates a new field in a product
 router.put('/products/:pid', async(req,res)=>{
     try{
         let pid = parseInt(req.params.pid)
@@ -55,6 +58,7 @@ router.put('/products/:pid', async(req,res)=>{
     }
 })
 
+//Logical Deletion Implemented!! It only changes the status from true to false. Doesn't remove the product completely
 router.delete('/products/:pid', async(req,res)=>{
     try{
         let pid = parseInt(req.params.pid)

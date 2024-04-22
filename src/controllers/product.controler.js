@@ -6,6 +6,7 @@ class ProductManager {
         this.path = path.resolve(__dirname, '../products.json');
     }
 
+    //Function creates a product and adds it to the product list.
     async addProduct(title, description, code, price, stock, category, thumbnail){
         try {
             let products = [];
@@ -50,6 +51,7 @@ class ProductManager {
         }
     }
 
+    //Function that lists products.
     async getProducts() {
         try {
             const data = await fs.readFile(this.path, 'utf8');
@@ -61,6 +63,7 @@ class ProductManager {
         }
     }
 
+    //Function that returns a product by its id.
     async getProductById(id) {
         try {
             const data = await fs.readFile(this.path, 'utf8');
@@ -77,8 +80,7 @@ class ProductManager {
         }
     }
 
-    //Se implemento un borrado logico. No se elimina por completo el producto, sino que se cambia su status a false.
-
+    //Funcion that implements the logical erase of a product determined by its id.
     async deleteProduct(id) {
         try {
             const data = await fs.readFile(this.path, 'utf8');
@@ -98,6 +100,7 @@ class ProductManager {
     }
 
     //!Controlar que si agregan un nuevo codigo este codigo ya no exista antes.
+    //Function updates a product by its id and its field.
     async updateProduct(id, fieldToUpdate, newValue) {
         try {
             const data = await fs.readFile(this.path, 'utf8');

@@ -3,6 +3,7 @@ const router = express.Router()
 const CartManager = require("../controllers/carts.controler")
 const manager = new CartManager()
 
+//Route returned by a cart determined by its id.
 router.get('/carts/:cid', async(req,res)=>{
     try{
         let cid = parseInt(req.params.cid)
@@ -17,6 +18,7 @@ router.get('/carts/:cid', async(req,res)=>{
     }
 })
 
+//Route that returns the products in a determined cart.
 router.post('/carts', async(req,res)=>{
     try{
         const response = manager.newCart()
@@ -26,6 +28,7 @@ router.post('/carts', async(req,res)=>{
     }
 })
 
+//Route that adds a determined product to a determined cart
 router.post('/carts/:cid/product/:pid', async(req,res)=>{
     try{
         let cid = parseInt(req.params.cid)

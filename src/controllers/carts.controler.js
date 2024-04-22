@@ -6,6 +6,7 @@ class CartManager {
         this.path = path.resolve(__dirname, '../carts.json');
     }
 
+    //Function that create a new cart.
     async newCart(){
         try {
             let cart = [];
@@ -36,6 +37,7 @@ class CartManager {
         }
     }
 
+    //Function that returns products from a determined cart searched by id
     async getProductsByCart(cid){
         try{
             let carts  = []
@@ -65,7 +67,7 @@ class CartManager {
 
     } 
 
-    //!Controlar si existen carritos o no antes porque tira error "Unexpected end of JSON input".
+    //Function that adds a determined product to a determined cart
     async addProduct(cid,pid){
         try {
             let product = []
@@ -75,9 +77,10 @@ class CartManager {
             }
             const product_find = product.find(e => e.id === pid);
 
-            if(!product_find){
-                throw new Error("The product does not exist")
+            if(!product_find||!(product_find.status)||(product_find.stock==0)){
+                throw new Error("The product does not exist or is out of stock")
             }
+
 
             let carts  = []
             try {
