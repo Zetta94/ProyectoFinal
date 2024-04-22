@@ -129,7 +129,7 @@
     "id": 10,
     "title": "Monitor LG UltraWide 34WL850-W",
     "description": "Monitor ultrapanorámico de 34 pulgadas con resolución QHD, tecnología IPS y compatibilidad con HDR10.",
-    "code": "MLUW34WL850",
+    "code": "nuevo valor actualizado",
     "price": 799.99,
     "status": true,
     "stock": 15,
@@ -137,20 +137,6 @@
     "thumbnail": [
       "https://example.com/lg-ultrawide-34wl850-w-1.jpg",
       "https://example.com/lg-ultrawide-34wl850-w-2.jpg"
-    ]
-  },
-  {
-    "id": 11,
-    "title": "Producto 13",
-    "description": "Description 13",
-    "code": "MLUW34WL850",
-    "price": 12.1212,
-    "status": false,
-    "stock": 12,
-    "category": "Category 12",
-    "thumbnail": [
-      "www.nuevaimagen12.com",
-      "www.otraimagen12.com"
     ]
   }
 ]

@@ -38,24 +38,34 @@ class CartManager {
 
     async getProductsByCart(cid){
         try{
-        const data = await fs.readFile(this.path, 'utf8');
-        const carts = JSON.parse(data);
-        const cart_find = carts.find(e => e.id === cid);
-        if(cart_find){
-            if(cart_find.products.length>0){
-                return cart_find.products
-            }else{
-                return null
+            let carts  = []
+            try {
+                const data = await fs.readFile(this.path, 'utf8')
+                if (data.trim() !== '') {
+                    carts = JSON.parse(data);
+                }
+            } catch (error) {
+                if (error.code !== 'ENOENT') {
+                    console.error('Error reading file:', error)
+                }
             }
-        }else{
-            throw new Error("Cart does not exist")
-        }
+            const cart_find = carts.find(e => e.id === cid);
+            if(cart_find){
+                if(cart_find.products.length>0){
+                    return cart_find.products
+                }else{
+                    return null
+                }
+            }else{
+                throw new Error("Cart does not exist")
+            }
         } catch (error) {
             throw new Error(error);
         }
 
     } 
 
+    //!Controlar si existen carritos o no antes porque tira error "Unexpected end of JSON input".
     async addProduct(cid,pid){
         try {
             let product = []
@@ -69,8 +79,18 @@ class CartManager {
                 throw new Error("The product does not exist")
             }
 
-            const data2 = await fs.readFile(this.path, 'utf8');
-            const carts = JSON.parse(data2)
+            let carts  = []
+            try {
+                const data2 = await fs.readFile(this.path, 'utf8')
+                if (data2.trim() !== '') {
+                    carts = JSON.parse(data2);
+                }
+            } catch (error) {
+                if (error.code !== 'ENOENT') {
+                    console.error('Error reading file:', error)
+                }
+            }
+
             const index = carts.findIndex(e => e.id === cid);
 
             if (index === -1) {
