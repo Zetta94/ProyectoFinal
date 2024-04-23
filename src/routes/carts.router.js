@@ -41,4 +41,15 @@ router.post('/carts/:cid/product/:pid', async(req,res)=>{
     }
 })
 
+//Route that removes a cart from the list
+router.delete('/carts/:cid',async(req,res)=>{
+    try{
+        let cid = parseInt(req.params.cid)
+        const response = await manager.deleteCart(cid)
+        res.status(200).send({status:"success",message: "Cart successfully deleted."})
+    }catch(error){
+        res.status(500).send({status :"error", error:error.messsage})
+    }
+})
+
 module.exports = router
